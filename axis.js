@@ -20,11 +20,10 @@ var xAxis = d3.svg.axis().scale(xScale).orient('bottom').ticks(8);
 var yAxis = d3.svg.axis().scale(yScale).orient('left').ticks(20);
 
 var parseTime = d3.time.format("%Y%m%d");
-valentinesDay = "20150214";
 
 d3.csv('climate_data.csv', function(data) {
   yDomain = d3.extent(data, function(element){
-    return parseInt(element.TMAX) + 20;
+    return parseInt(element.TMAX);
   });
 
   xDomain = d3.extent(data, function(element) {
